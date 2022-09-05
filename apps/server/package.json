@@ -7,12 +7,16 @@
     "build": "tsc",
     "start": "node -r esbuild-register ./src/index.ts",
     "lint": "tsc --noEmit && TIMING=1 eslint src/**/*.ts* --fix",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo && rm -rf dist"
+  },
+  "dependencies": {
+    "fastify": "^4.5.3"
   },
   "devDependencies": {
     "@types/node": "^18.7.15",
     "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",
+    "tsconfig": "*",
     "typescript": "^4.8.2"
   }
 }
