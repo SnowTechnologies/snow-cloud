@@ -1,15 +1,22 @@
 import fastify from 'fastify';
+import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
+import { createContext } from '@src/context';
+import { appRouter } from '@src/router';
 
-const server = fastify()
+const server = fastify({
+    maxParamLength: 5000,
+});
 
-server.get('/ping', async (req, res) => {
-    return 'Pong\n';
-})
+server.register(fastifyTRPCPlugin, {
+    prefix: '/v1',
+    trpcOptions: { router: appRouter, createContext },
+});
 
-server.listen({ port: 8080 }, (err, address) => {
-    if (err) {
-        console.error(err);
+(async () => {
+    try {
+        await server.listen({ port: 4000 });
+    } catch (err) {
+        server.log.error(err);
         process.exit(1);
     }
-    console.log(`Server listening at ${address}`);
-})
+})();
