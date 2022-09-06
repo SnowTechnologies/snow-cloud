@@ -1,6 +1,6 @@
 # Snow Cloud
 
-Snow Cloud is a free and open-source file server and management system. Snow Cloud works very similarly to other cloud file providers, like iCloud, OneDrive, or Google Drive.
+Snow Cloud is a free and open-source file server and management system. Snow Cloud works very similarly to other cloud file providers, like iCloud, OneDrive, or Google Drive. Snow Cloud is distributed under the AGPL v3 license.
 
 ## About
 
