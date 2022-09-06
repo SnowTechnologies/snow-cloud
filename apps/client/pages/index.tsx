@@ -6,8 +6,7 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Snow Cloud</title>
-                <link rel="icon" href="/favicon.svg" />
+                <title>Home | Snow Cloud</title>
             </Head>
         </>
     )
