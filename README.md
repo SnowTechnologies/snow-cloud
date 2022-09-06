@@ -6,15 +6,13 @@ Snow Cloud is a free and open-source file server and management system. Snow Clo
 
 The monorepo for Snow Cloud is configured and managed by [Turborepo](https://turborepo.org/).
 
-The client (frontend) site is built using [Next.js](https://nextjs.org) and [Tailwind](https://tailwindcss.com/), and is deployed through [Vercel](https://vercel.com/). Icons from [Feather Icons](https://feathericons.com/) (react-feather) are used.
+The client (frontend) site is built using [Next.js](https://nextjs.org) and [Tailwind](https://tailwindcss.com/). 
 
-The server (backend) is built using [Fastify](https://www.fastify.io/) and [Prisma](https://www.prisma.io/).
+The server (backend) is built using [Fastify](https://www.fastify.io/), [tRPC](https://trpc.io/), and [Prisma](https://www.prisma.io/).
 
-## Languages
+Snow Cloud uses [tRPC v10](https://trpc.io/docs/v10/) to facilitate communication between the client and server.
 
- [TypeScript](https://www.typescriptlang.org/)
- 
- [TSX](https://www.typescriptlang.org/docs/handbook/jsx.html) + (HTML & CSS)
+[TypeScript](https://www.typescriptlang.org/) is primarily used across this application's source code to ensure type-safety and to reduce the number of bugs.
 
 ***
 
