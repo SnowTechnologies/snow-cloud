@@ -1,6 +1,3 @@
-import { initTRPC } from '@trpc/server';
-import { z } from 'zod';
-
 import { t } from '@src/trpc';
 import { userRouter } from '@src/routers/user-router';
 
