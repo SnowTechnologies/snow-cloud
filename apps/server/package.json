@@ -10,9 +10,11 @@
     "clean": "rm -rf .turbo && rm -rf dist"
   },
   "dependencies": {
+    "@prisma/client": "^4.3.1",
     "@trpc/server": "^10.0.0-proxy-alpha.70",
     "fastify": "^4.5.3",
     "next-auth": "^4.10.3",
+    "prisma": "^4.3.1",
     "superjson": "^1.9.1",
     "zod": "^3.18.0"
   },
