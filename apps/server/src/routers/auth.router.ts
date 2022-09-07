@@ -5,6 +5,24 @@ import { t } from "@src/trpc";
 import { loginSchema, registerSchema } from "@src/schemas/auth.schema";
 
 export const authRouter = t.router({
+    login: t.procedure
+        .input(loginSchema)
+        .mutation(async ({ ctx, input }) => {
+            const { email, password } = input;
+
+            const user = await ctx.prisma.user.findFirst({ where: { email } });
+
+            // Verify user exists and email/password combo are valid
+            if (!user || !(await argon2.verify(password, user.password))) {
+                throw new TRPCError({
+                    code: "BAD_REQUEST",
+                    message: "Invalid email or password",
+                })
+            }
+
+            // Generate tokens
+        }),
+
     register: t.procedure
         .input(registerSchema)
         .mutation(async ({ ctx, input }) => {
