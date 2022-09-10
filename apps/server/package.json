@@ -9,6 +9,7 @@
     "lint": "tsc --noEmit && TIMING=1 eslint src/**/*.ts* --fix",
     "clean": "rm -rf .turbo && rm -rf dist",
     "db:migrate": "npx prisma migrate dev",
+    "db:generate": "npx prisma generate",
     "db:push": "npx prisma db push"
   },
   "dependencies": {
