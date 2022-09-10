@@ -1,7 +1,7 @@
 import { createTRPCNext } from "@trpc/next";
 import superjson from 'superjson';
 
-import type { AppRouter } from "../../server/src/router";
+import type { AppRouter } from "@server/src/router";
 
 export const trpc = createTRPCNext<AppRouter>({
     config({ ctx }) {

@@ -5,7 +5,8 @@
     "paths": {
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@server/*": ["../server/*"]
     }
   },
   "extends": "tsconfig/nextjs.json",
