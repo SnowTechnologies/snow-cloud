@@ -1,27 +1,24 @@
 import { createTRPCNext } from "@trpc/next";
-import type { AppRouter } from "../../server/src/router";
+import superjson from 'superjson';
 
-const getBaseUrl = () => {
-    if (typeof window !== 'undefined') // browser should use relative path
-        return '';
-    
-    // Assume localhost
-    return "http://localhost:4000";
-}
+import type { AppRouter } from "../../server/src/router";
 
 export const trpc = createTRPCNext<AppRouter>({
     config({ ctx }) {
-        return {
-            /**
-             * If you want to use SSR, you need to use the server's full URL
-             * @link https://trpc.io/docs/ssr
-             **/
-            url: `${getBaseUrl()}/v1`,
-            /**
-             * @link https://react-query-v3.tanstack.com/reference/QueryClient
-             **/
-            // queryClientConfig: { defaultOptions: { queries: { staleTime: 60 } } },
-        };
+        if (typeof window !== 'undefined') {
+            return {
+                transformer: superjson,
+                url: '/v1',
+            }
+        }
+
+       return {
+        transformer: superjson,
+        url: "http://localhost:4000/v1",
+        headers: {
+            'x-ssr': '1',
+        }
+       };
     },
     /**
      * @link https://trpc.io/docs/ssr
