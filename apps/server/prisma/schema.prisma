@@ -11,22 +11,23 @@ datasource db {
 }
 
 model User {
-    id           Int            @id @default(autoincrement())
-    email        String         @unique
-    password     String
-    isAdmin      Boolean        @default(false)
-    firstName    String?
-    lastName     String?
+    id            Int            @id @default(autoincrement())
+    email         String         @unique
+    password      String
+    isAdmin       Boolean        @default(false)
+    firstName     String?
+    lastName      String?
     refreshTokens RefreshToken[]
 
     @@map(name: "users")
 }
 
 model RefreshToken {
-    id     Int    @id @default(autoincrement())
-    token  String @unique
+    id     Int     @id @default(autoincrement())
+    token  String  @unique
+    valid  Boolean @default(true)
     userId Int
-    user   User   @relation(fields: [userId], references: [id])
+    user   User    @relation(fields: [userId], references: [id])
 
     @@map(name: "refresh_tokens")
 }
