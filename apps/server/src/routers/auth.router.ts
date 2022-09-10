@@ -2,15 +2,14 @@ import { TRPCError } from "@trpc/server";
 import * as argon2 from "argon2";
 
 import { t } from "@src/trpc";
-import customConfig from "@src/config/default";
 import { loginSchema, registerSchema } from "@src/schemas/auth.schema";
-import { signJwt, verifyJwt } from "@src/utils/jwt";
+import { generateTokensOnLogin } from "@src/utils/auth.utils";
 
 export const authRouter = t.router({
     login: t.procedure.input(loginSchema).mutation(async ({ ctx, input }) => {
         const { email, password } = input;
 
-        const user = await ctx.prisma.user.findFirst({ where: { email } });
+        const user = await ctx.prisma.user.findFirst({ where: { email: email } });
 
         // Verify user exists and email/password combo are valid
         if (!user || !(await argon2.verify(password, user.password))) {
@@ -20,16 +19,15 @@ export const authRouter = t.router({
             });
         }
 
-        // Generate tokens
-        const accessToken = await signJwt({ "sub": user.id }, 'accessTokenPrivateKey', {
-            expiresIn: `${customConfig.accessTokenLifespan}m`,
-        });
+        // Generate new tokens
+        const { access_token, refresh_token } = await generateTokensOnLogin(user, ctx.prisma);
 
-        const refreshToken = await signJwt({ "sub": user.id }, 'refreshTokenPrivateKey', {
-            expiresIn: `${customConfig.refreshTokenLifespan}m`,
-        });
-
-        
+        return {
+            status: 200,
+            message: "Login successful.",
+            access_token,
+            refresh_token,
+        }
     }),
 
     register: t.procedure
