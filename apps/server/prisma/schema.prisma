@@ -24,10 +24,10 @@ model User {
 
 model RefreshToken {
     id     Int     @id @default(autoincrement())
-    token  String  @unique
-    valid  Boolean @default(true)
     userId Int
     user   User    @relation(fields: [userId], references: [id])
+    valid  Boolean @default(true)
+    token  String  @unique
 
     @@map(name: "refresh_tokens")
 }
