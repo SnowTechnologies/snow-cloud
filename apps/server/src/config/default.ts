@@ -1,7 +1,7 @@
 const customConfig: {
     port: number;
-    accessTokenLifespan: number;
-    refreshTokenLifespan: number;
+    accessTokenLifespan: string;
+    refreshTokenLifespan: string;
     origin: string;
     accessTokenPrivateKey: string;
     refreshTokenPrivateKey: string;
@@ -10,8 +10,8 @@ const customConfig: {
 } = {
     port: 4000,
 
-    accessTokenLifespan: 15,
-    refreshTokenLifespan: 60,
+    accessTokenLifespan: "15m", // 15 Minutes
+    refreshTokenLifespan: "7d", // 1 Week
 
     origin: "http://localhost:4000",
 
