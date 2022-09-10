@@ -1,18 +1,20 @@
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
+import type { AppType } from "next/dist/shared/lib/utils";
+import { trpc } from "@utils/trpc";
 
-import '@styles/globals.css'
+import type { AppProps } from "next/app";
+import Head from "next/head";
 
-function MyApp({ Component, pageProps }: AppProps) {
-    return(
+import "@styles/globals.css";
+
+const MyApp: AppType = ({ Component, pageProps }: AppProps) => {
+    return (
         <>
             <Head>
                 <link rel="icon" href="/favicon.svg" />
             </Head>
             <Component {...pageProps} />
         </>
-
-    )
+    );
 }
 
-export default MyApp
+export default trpc.withTRPC(MyApp);
