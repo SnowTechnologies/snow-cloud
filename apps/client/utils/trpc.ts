@@ -8,7 +8,7 @@ export const trpc = createTRPCNext<AppRouter>({
         if (typeof window !== 'undefined') {
             return {
                 transformer: superjson,
-                url: '/v1',
+                url: 'http://localhost:4000/v1',
             }
         }
 
