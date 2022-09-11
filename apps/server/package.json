@@ -10,7 +10,7 @@
     "clean": "rm -rf .turbo && rm -rf dist",
     "db:migrate": "npx prisma migrate dev",
     "db:generate": "npx prisma generate",
-    "db:push": "npx prisma db push"
+    "db:push": "npx prisma db push --force-reset"
   },
   "dependencies": {
     "@fastify/cors": "^8.1.0",

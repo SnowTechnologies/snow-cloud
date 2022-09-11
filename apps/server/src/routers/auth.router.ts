@@ -12,7 +12,7 @@ export const authRouter = t.router({
         const user = await ctx.prisma.user.findFirst({ where: { email: email } });
 
         // Verify user exists and email/password combo are valid
-        if (!user || !(await argon2.verify(password, user.password))) {
+        if (!user || !(await argon2.verify(user.password, password))) {
             throw new TRPCError({
                 code: "BAD_REQUEST",
                 message: "Invalid email or password",

@@ -20,6 +20,7 @@ server.register(fastifyTRPCPlugin, {
 
 (async () => {
     try {
+        console.log("Starting server on port 4000.");
         await server.listen({ port: 4000 });
     } catch (err) {
         server.log.error(err);
