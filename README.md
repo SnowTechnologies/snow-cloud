@@ -13,7 +13,7 @@ The monorepo for Snow Cloud is configured and managed by [Turborepo](https://tur
 The client (frontend) site is built using [Next.js](https://nextjs.org) ([React](https://reactjs.org/)), [tRPC](https://trpc.io/docs/v10/), [TanStack Query](https://tanstack.com/query/v4), and [Tailwind](https://tailwindcss.com/). 
 
 ### Server
-The server (backend) is built using [Fastify](https://www.fastify.io/), [Prisma](https://www.prisma.io/), [tRPC](https://trpc.io/docs/v10/), [TanStack Query](https://tanstack.com/query/v4), [zod](https://www.npmjs.com/package/zod), [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken), and [argon2](https://www.npmjs.com/package/argon2). 
+The server (backend) is built using [Fastify](https://www.fastify.io/), [Prisma](https://www.prisma.io/), [tRPC](https://trpc.io/docs/v10/), [zod](https://www.npmjs.com/package/zod), [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken), and [argon2](https://www.npmjs.com/package/argon2). 
 
 ### Client-Server Communication
 Snow Cloud uses [tRPC v10](https://trpc.io/docs/v10/) to facilitate communication between the client and server. tRPC guarantees type-safety between the client and server.
